@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>かんたんFP診断ツール（凡例付き）</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>💼 かんたんFP診断ツール（Ver.2）</h1>
+    <p>この診断は80歳までを対象にした簡易シミュレーションです。詳細なライフプランはFP面談で設計可能です。</p>
+
+    <form id="fp-form">
+      <label for="age">年齢：</label>
+      <input type="number" id="age" required>
+      <small>例：現在の満年齢</small>
+
+      <label for="income">年収（万円）：</label>
+      <input type="number" id="income" required>
+      <small>例：現在の税込年収</small>
+
+      <label for="monthlyLiving">基本生活費（月額／万円）：</label>
+      <input type="number" id="monthlyLiving" required>
+      <small>例：住宅費・食費・光熱費・交通・通信・保険等の合計</small>
+
+      <label for="eventExpense">ライフイベント費（年間／万円）：</label>
+      <input type="number" id="eventExpense" required>
+      <small>例：教育費・旅行・住宅修繕・車買替などの年間合計</small>
+
+      <label for="retirementAge">退職予定年齢：</label>
+      <input type="number" id="retirementAge" value="60" required>
+      <small>例：一般的には60〜65歳が多いです</small>
+
+      <label for="retirementBonus">退職金（万円）：</label>
+      <input type="number" id="retirementBonus" value="0" required>
+      <small>例：退職時に一括受給予定の金額</small>
+
+      <label for="pensionStartAge">年金開始年齢：</label>
+      <input type="number" id="pensionStartAge" value="65" required>
+      <small>例：現在は65歳が標準、繰り上げ・繰り下げも可能</small>
+
+      <label for="pensionAmount">年金見込額（万円／年）：</label>
+      <input type="number" id="pensionAmount" value="180" required>
+      <small>例：老齢基礎年金＋厚生年金等の合計額</small>
+
+      <label for="assets">現在の資産総額（万円）：</label>
+      <input type="number" id="assets" required>
+      <small>例：預貯金・有価証券などすぐ使える金融資産の合計</small>
+
+      <button type="submit">📩 診断する</button>
+    </form>
+
+    <div class="output">
+      <h2>📊 キャッシュフロー推移</h2>
+      <canvas id="cashflowChart"></canvas>
+
+      <h2>💰 資産残高推移</h2>
+      <canvas id="assetChart"></canvas>
+
+      <h2>📝 コメント</h2>
+      <div id="summaryComment"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
